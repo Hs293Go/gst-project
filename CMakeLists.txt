@@ -1,14 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gst-project)
 
-## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
-
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
-
-## System dependencies are found with CMake's conventions
 find_package(fmt REQUIRED)
 find_package(Boost REQUIRED program_options)
 find_package(PkgConfig REQUIRED)
@@ -50,4 +42,9 @@ target_link_libraries(gst_stream_udp
   ${GSTREAMER_LIBRARIES}
   ${Boost_LIBRARIES}
   fmt::fmt
+)
+
+install(
+  TARGETS gst_stream_udp
+  DESTINATION bin 
 )
